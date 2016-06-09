@@ -12,7 +12,7 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> 
 	@Query(value ="select * from employee_table as e where"
 			+ " LOWER(e.firstname) = LOWER(?1) AND"
 			+ " LOWER(e.lastname) = LOWER(?2) AND"
-			+ " LOWER(e.middlename) = LOWER(?3) AAND"
+			+ " LOWER(e.middlename) = LOWER(?3) AND"
 			+ " e.emplyee_id in (select r.emplyee_id from employee_role as r where r.role_id=?4 )"
 			,nativeQuery = true)
 	 List<EmployeeEntity> findBy(String firstname,
